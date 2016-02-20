@@ -19,4 +19,9 @@ public class AppConfig {
         propertySourcesPlaceholderConfigurer.setLocation(new ClassPathResource("app.properties"));
         return propertySourcesPlaceholderConfigurer;
     }
+
+    @Bean
+    public CounterBean counter() {
+        return new CounterBean();
+    }
 }
