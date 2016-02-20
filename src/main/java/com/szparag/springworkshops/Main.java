@@ -12,7 +12,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello from package");
 //        SpringApplication.run(BaseController.class, args);
-        SpringApplication.run(BaseController.class, args);
+//        SpringApplication.run(BaseController.class, args);
+        SpringApplication.run(AppConfig.class, args);
     }
 
 }
