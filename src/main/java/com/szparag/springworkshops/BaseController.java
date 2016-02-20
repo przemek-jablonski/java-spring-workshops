@@ -49,4 +49,9 @@ public class BaseController{
         //spring typowo tworzy jedna instancje : SINGLETONA
         //obchodzimy poprzez zadeklarowanie PROTOTYPU
         //wstrzykniecia poprzez autowire
+        //Factory - Beans that create other beans
+        //exceptions: throw vs try&catch
+        //Lazy and Eager beans
+        //Serwisy + hibernate
+        // SIMILAR TO SYMFONY2: every controller for different mappings
 }
