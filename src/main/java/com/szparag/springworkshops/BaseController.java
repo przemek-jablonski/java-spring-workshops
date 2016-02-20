@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
+
 /**
  * Created by Ciemek on 20/02/16.
  */
@@ -21,13 +23,17 @@ public class BaseController{
     @Autowired
     private LogBean logBean;
 
+    @Autowired
+    @Resource(name = "jakiesrepo")
+    private Repo repo;
+
     @RequestMapping("/")
     @ResponseBody
     String home() {
         String homeMessage = "Hello World!<br/><br/>";
 
         homeMessage += "count: " + counterBean.incrementAndGet() + "<br/>";
-//        homeMessage += "logBean: " +
+        homeMessage += "repo: " + repo.toString() + "<br/>";
 
         return homeMessage;
     }
