@@ -27,22 +27,26 @@ public class BaseController{
     @Resource(name = "jakiesrepo")
     private Repo repo;
 
+    @Autowired
+    private PrototypeBean prototypeBean;
+
     @RequestMapping("/")
     @ResponseBody
-    String home() {
+    public String home() {
         String homeMessage = "Hello World!<br/><br/>";
 
         homeMessage += "count: " + counterBean.incrementAndGet() + "<br/>";
         homeMessage += "repo: " + repo.toString() + "<br/>";
-
+        homeMessage += "PROTOTYPE (from Controller): " + prototypeBean.toString() + "<br/>" + prototypeBean.getUuid() + "<br/>";
+        homeMessage += "PROTOTYPE (from ComposableBean): " + logBean.getPrototypeInfo() + "<br/>" + prototypeBean.getUuid() + "<br/>";
         return homeMessage;
     }
-
-
-
 
     //to learn:
         //REFLEKSJA W JAVIE
         //MAP W JAVIE
         //kolejka MQ na serwerze
+        //spring typowo tworzy jedna instancje : SINGLETONA
+        //obchodzimy poprzez zadeklarowanie PROTOTYPU
+        //wstrzykniecia poprzez autowire
 }

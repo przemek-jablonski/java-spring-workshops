@@ -19,6 +19,9 @@ public class LogBean implements InitializingBean, DisposableBean {
     @Autowired
     private CounterBean counterBean;
 
+    @Autowired
+    private PrototypeBean prototypeBean;
+
     @Override
     public void destroy() throws Exception {
         log.info("shutting down LogBean");
@@ -28,5 +31,9 @@ public class LogBean implements InitializingBean, DisposableBean {
     public void afterPropertiesSet() throws Exception {
         Assert.notNull(counterBean, "counterBean");
         log.info("INITIALIZING LOG BEAN");
+    }
+
+    public String getPrototypeInfo() {
+        return prototypeBean.toString();
     }
 }
