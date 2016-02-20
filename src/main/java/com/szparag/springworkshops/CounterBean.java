@@ -10,7 +10,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Component
 public class CounterBean {
 
-    //bezpiecznosc wielowatkowa - dlatego AtomicInteger, a nie int
+
+
+    //bezpiecznosc wielowatkowa - dlatego AtomicInteger, a nie zwykly int
     private final AtomicInteger counter = new AtomicInteger();
 
     public Integer incrementAndGet() {

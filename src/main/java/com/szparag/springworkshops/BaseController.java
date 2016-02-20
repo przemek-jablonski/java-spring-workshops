@@ -13,18 +13,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @ComponentScan(value="com.szparag.springworkshops")
 @EnableAutoConfiguration
-public class BaseController {
+public class BaseController{
 
     @Autowired
     private CounterBean counterBean;
 
+    @Autowired
+    private LogBean logBean;
+
     @RequestMapping("/")
     @ResponseBody
     String home() {
-        return "Hello World(spring)(baseController)\n"
-                + counterBean.incrementAndGet();
+        String homeMessage = "Hello World!<br/><br/>";
+
+        homeMessage += "count: " + counterBean.incrementAndGet() + "<br/>";
+//        homeMessage += "logBean: " +
+
+        return homeMessage;
     }
+
+
+
 
     //to learn:
         //REFLEKSJA W JAVIE
+        //MAP W JAVIE
+        //kolejka MQ na serwerze
 }
